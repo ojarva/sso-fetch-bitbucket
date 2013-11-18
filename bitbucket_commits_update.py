@@ -145,7 +145,7 @@ class bitbucketUpdate:
             self.post_queue.append(data)
         if len(self.post_queue) > 100 or (len(self.post_queue) > 0 and data is None):
             statsd.incr("bitbucket.update.post.request")
-            (resp, cont) = self.http.request(config.get("server-url"), "POST", body=json.dumps(self.post_queue))
+            (resp, cont) = self.http.request(self.config.get("server-url"), "POST", body=json.dumps(self.post_queue))
             if cont == "OK":
                 self.post_queue = []
             else:
