@@ -3,6 +3,8 @@ from statsd import StatsClient
 from functools import wraps
 import time
 
+__all__ = ["statsd", "timing"]
+
 statsd = StatsClient()
 
 
